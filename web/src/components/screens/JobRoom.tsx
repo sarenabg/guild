@@ -174,11 +174,11 @@ function Crew({ v }: { v: V }) {
         <div className="py-10 text-center text-muted">Waiting for agents…</div>
       ) : (
         <div className="py-2">
-          <Honeycomb size={92} perRow={4}>
+          <Honeycomb size={84} perRow={3}>
             {ids.map((a) =>
               agents[a] ? (
                 <Link key={a} href={to(`/agents/${a}`)} className="rise" aria-label={agents[a].name}>
-                  <Hex agent={agents[a]} size={92} state={state(a)} sub={a === working ? "working" : crewIds.includes(a) ? SKILL_LABEL[agents[a].skill].toLowerCase() : undefined} />
+                  <Hex agent={agents[a]} size={84} state={state(a)} sub={a === working ? "working" : crewIds.includes(a) ? SKILL_LABEL[agents[a].skill].toLowerCase() : undefined} />
                 </Link>
               ) : null,
             )}
