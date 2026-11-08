@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test:unit": "rm -rf .test-build && tsc -p tsconfig.test.json && node --test .test-build/scripts/unit.test.js",
     "e2e": "node scripts/e2e.mjs",
-    "test": "npm run test:unit && npm run e2e"
+    "test": "npm run test:unit && npm run e2e && npm run e2e:live",
+    "e2e:live": "node scripts/e2e-live.mjs"
   },
   "dependencies": {
     "@near-wallet-selector/core": "^10.1.4",

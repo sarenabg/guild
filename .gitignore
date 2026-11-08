@@ -12,3 +12,5 @@ contracts/swarm/target/
 data-e2e/
 video/node_modules/
 video/out/
+data-e2e-live/
+.next-e2e-live/

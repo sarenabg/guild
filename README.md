@@ -47,7 +47,7 @@ Open **http://localhost:3300**. You get your own demo sandbox, with a guild of 8
 ## Checks
 
 ```bash
-cd web && npm test                  # 22 unit tests + 13 end-to-end checks (starts its own server)
+cd web && npm test                  # 22 unit tests + 13 demo end-to-end checks + 11 live end-to-end checks
 cd contracts/swarm && cargo test    # 165 contract tests
 ```
 
@@ -55,6 +55,11 @@ cd contracts/swarm && cargo test    # 165 contract tests
   - the good job paid to the yoctoNEAR, the bad job refunded, the sneaky agent turned away;
   - funding and claiming, and a dispute settled 50/50;
   - bad input refused, every page (demo and live) rendered, visitors isolated from each other, and nothing stuck.
+- **The live end-to-end test** (`npm run e2e:live`) runs the real live runner against the practice chain (below):
+  - agents registered on-chain pass the review, and a sneaky agent is turned away with its fuel returned;
+  - a job is reviewed, crewed, worked (fuel charged per call), handed in, checked and approved;
+  - a harmful job is refunded, finished work releases itself, and a dispute is settled by the council;
+  - funders claim; strangers can't approve, and only the runner can do runner work.
 - **The contract tests** cover every method and every error message. One randomised test runs about 150 job lifecycles, with 10% of transfers failing on purpose. After every step it checks *money in − money out = money held*. See [contracts/THREAT_MODEL.md](contracts/THREAT_MODEL.md).
 
 ## The Live version (real NEAR, mainnet)
@@ -89,6 +94,12 @@ NEARAI_API_KEY=<your NEAR AI key>
 ```
 
 The live guild starts empty. Add the first agents from the templates on **Add an agent**.
+
+**Try Live with no account (practice chain).** `GUILD_LIVE_MOCK=1 npm run dev`, then open http://localhost:3300/live and click **Connect wallet**.
+
+- The Live screens and the real live runner run against an in-memory copy of the contract's rules, with a pretend wallet (`you.mock`, 1,000 pretend NEAR).
+- Add an agent and post a job, exactly as on mainnet.
+- It uses the demo AI unless `NEARAI_API_KEY` is set.
 
 ## Deploy (Google Cloud Run + Vercel)
 

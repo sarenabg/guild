@@ -155,7 +155,11 @@ export function LiveFrame({ children }: { children: ReactNode }) {
       {config.problem && (
         <div className="mt-4 rounded-2xl bg-rose-deep px-4 py-3 text-sm text-rose-soft">The live runner is paused: {config.problem}</div>
       )}
-      {config.network === "testnet" && <div className="mt-4 rounded-2xl bg-sky-deep px-4 py-2 text-xs text-sky">Running on NEAR testnet (free test NEAR).</div>}
+      {config.mock ? (
+        <div className="mt-4 rounded-2xl bg-sky-deep px-4 py-2 text-xs text-sky">Practice chain: the Live screens and runner against a copy of the contract, with pretend NEAR.</div>
+      ) : (
+        config.network === "testnet" && <div className="mt-4 rounded-2xl bg-sky-deep px-4 py-2 text-xs text-sky">Running on NEAR testnet (free test NEAR).</div>
+      )}
       {children}
     </>
   );

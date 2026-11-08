@@ -6,7 +6,7 @@ import { specHash } from "../runtime";
 import { ALLOWED_TOOLS } from "../guardrails";
 import { InputError } from "../actions";
 import { balanceOf, view } from "./near";
-import { refresh, snapshot, startLive, withSpec, type ChainAgent, type ChainJob, type ChainVerdict } from "./runner";
+import { aiLabel, refresh, snapshot, startLive, withSpec, type ChainAgent, type ChainJob, type ChainVerdict } from "./runner";
 import { changeLive, live, type LiveSpec } from "./state";
 
 // The live version's read side: the same shapes as the demo views, built from
@@ -27,12 +27,13 @@ export function liveConfig() {
     runner: snap.config?.runner ?? null,
     problem: liveProblem(),
     model: config.model,
+    mock: config.liveMock,
   };
 }
 
 function verdict(v: ChainVerdict | null): Verdict | null {
   if (!v) return null;
-  return { ...v, by: "ai", verified: v.verified_signer ? { signer: v.verified_signer, kind: "provider_tee" } : null };
+  return { ...v, by: aiLabel(), verified: v.verified_signer ? { signer: v.verified_signer, kind: "provider_tee" } : null };
 }
 
 function phaseOf(j: ChainJob, attempts: number): Phase {
@@ -107,6 +108,7 @@ function toAgent(a: ChainAgent): Agent {
   const h = parseInt(crypto.createHash("sha256").update(a.id).digest("hex").slice(0, 6), 16);
   return {
     ...(a as unknown as Agent),
+    review: verdict(a.review),
     tagline: "Instructions not shared",
     skill: "write",
     hue: h % 360,

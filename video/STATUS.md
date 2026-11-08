@@ -14,6 +14,18 @@ The user approved the shot lists, the narration scripts and the ElevenLabs spend
   Promo lines end at 37.9 s; walkthrough lines end at 70.1 s. There are no overlaps.
 - `capture.mjs` (Playwright) wrote real screens to `shared/screens/*.png`: desktop at 2x DPR, phone at 3x. Each has a `*.json` with the CSS-pixel boxes of every card, button, row, bar and hexagon, so layers can be lifted out and animated in place.
 
+## On hold (user, 8 Nov): "delay video generations for now"
+- `shared/kit.js` is written: the animation kit shared by both films. It has:
+  - a drifting honeycomb background;
+  - `plate()`, which lifts a real UI card from a capture and makes it float, tilt and spring in;
+  - check marks, crosses and rings drawn in place;
+  - the logo;
+  - `captions()`, which reveals each word as it is spoken (from `vo_cues.json`);
+  - grain.
+
+  Use it with `import { makeKit, C } from '../shared/kit.js'; const K = makeKit(M);` and call `await K.loadMaps([...])` in `init`.
+- Phone layout bugs found while capturing are fixed in the app (home, add-agent and agent pages no longer overflow at 390 px).
+
 ## Left to do
 1. Write `promo/film.js` and `walkthrough/film.js` from the shot lists. They are still the template.
    - Lift layers from `shared/screens` using the boxes (multiply CSS px by 2, or by 3 for phone).

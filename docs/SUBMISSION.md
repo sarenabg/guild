@@ -29,7 +29,7 @@ Don't fill the `website` field: the hackathon uses it as a spam trap.
 >
 > Matching agents make offers and a crew forms: find out → make → check. Each agent works on NEAR AI inside a TEE. Its own fuel pays for its AI, capped per job, with the NEAR AI receipt recorded on-chain, and answers carry TEE signatures the contract can verify. A final AI check compares the work with the brief. Then the poster approves, or it pays out by itself. Each crew member's pay is split three ways: back into its fuel, to its creator, and to everyone who funded it, so backing a good agent earns you money.
 >
-> No owner and no upgrade key. Stuck money always has a way out. 165 contract tests, plus 22 unit and 13 end-to-end tests for the app. Try the demo with no wallet, or go Live on mainnet.
+> No owner and no upgrade key. Stuck money always has a way out. 165 contract tests, plus 46 app tests, including an end-to-end run of the live runner. Try the demo with no wallet, or go Live on mainnet.
 
 ### Why these tracks
 

@@ -9,7 +9,10 @@ import type { WalletSelectorModal } from "@near-wallet-selector/modal-ui";
 // The Live version's wallet. The person's own wallet (Meteor, HOT,
 // MyNearWallet) signs every call that moves their money. Guild never sees keys.
 
-export type LiveConfig = { enabled: boolean; network: "mainnet" | "testnet"; contract: string; council: string | null; problem: string | null; model: string };
+export type LiveConfig = { enabled: boolean; network: "mainnet" | "testnet"; contract: string; council: string | null; problem: string | null; model: string; mock?: boolean };
+
+/** The practice chain's pretend wallet account (see GUILD_LIVE_MOCK). */
+export const MOCK_ACCOUNT = "you.mock";
 
 type Ctx = {
   config: LiveConfig | null;
@@ -44,6 +47,14 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     (async () => {
       const cfg = (await fetch("/api/live/config").then((r) => r.json())) as LiveConfig;
       setConfig(cfg);
+      if (cfg.mock) {
+        try {
+          if (localStorage.getItem("guild_mock_wallet") === "1") setAccount(MOCK_ACCOUNT);
+        } catch {
+          // storage blocked: stay disconnected
+        }
+        return;
+      }
       if (!cfg.enabled) return;
       const [{ setupWalletSelector }, { setupModal }, { setupMeteorWallet }, { setupHotWallet }, { setupMyNearWallet }] = await Promise.all([
         import("@near-wallet-selector/core"),
@@ -61,15 +72,43 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     })().catch((e) => console.error("wallet setup failed", e));
   }, [onLive]);
 
-  const connect = useCallback(() => modal.current?.show(), []);
+  const connect = useCallback(() => {
+    if (config?.mock) {
+      setAccount(MOCK_ACCOUNT);
+      try {
+        localStorage.setItem("guild_mock_wallet", "1");
+      } catch {
+        // storage blocked: remember for this page only
+      }
+    } else modal.current?.show();
+  }, [config]);
   const disconnect = useCallback(async () => {
+    if (config?.mock) {
+      try {
+        localStorage.removeItem("guild_mock_wallet");
+      } catch {
+        // nothing to forget
+      }
+      return setAccount(null);
+    }
     const w = await selector.current?.wallet();
     await w?.signOut();
     setAccount(null);
-  }, []);
+  }, [config]);
 
   const call = useCallback<Ctx["call"]>(
     async (method, args, opts = {}) => {
+      if (config?.mock) {
+        if (!account) throw new Error("Connect a wallet first");
+        const res = await fetch("/api/live/mock", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ signer: account, method, args, deposit: (opts.deposit ?? 0n).toString() }),
+        });
+        const body = await res.json();
+        if (!res.ok) throw new Error(body.error ?? "The call failed");
+        return { value: body.value };
+      }
       const s = selector.current;
       if (!s || !config) throw new Error("The live version isn't ready yet");
       if (!account) {

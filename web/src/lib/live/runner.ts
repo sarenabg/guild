@@ -1,7 +1,7 @@
 import "server-only";
 import crypto from "node:crypto";
 import type { Agent, Verdict, WorkStep } from "../types";
-import { config, liveProblem } from "../config";
+import { config, liveAi, liveProblem } from "../config";
 import { reviewAgent, reviewDelivery, reviewJob } from "../review";
 import { fit, pickCrew, specHash } from "../runtime";
 import { gatherTools, stepAttempt, think, type Previous } from "../work";
@@ -65,10 +65,15 @@ const run: G = (g.__guildLiveRun ??= { snap: { config: null, jobs: [], agents: [
 
 export const snapshot = () => run.snap;
 
+/** Real NEAR AI whenever a key is set; the practice chain without a key uses the demo AI. */
+const realAi = () => liveAi() || !config.liveMock;
+/** Which reviewer produced the on-chain verdicts, for the badge on screen. */
+export const aiLabel = (): "ai" | "demo-ai" => (realAi() ? "ai" : "demo-ai");
+
 /** Read everything the screens need from the contract (cheap view calls). */
 export async function refresh(force = false): Promise<Snapshot> {
   if (!config.liveContract) return run.snap;
-  if (!force && Date.now() - run.lastRefresh < 2500) return run.snap;
+  if (!force && Date.now() - run.lastRefresh < Math.min(2500, config.liveTickMs)) return run.snap;
   run.lastRefresh = Date.now();
   try {
     const [cfg, jobs, agents, teeSigners] = await Promise.all([
@@ -109,7 +114,7 @@ export function startLive() {
       run.busy = false;
     }
   };
-  run.timer = setInterval(tick, 4000);
+  run.timer = setInterval(tick, config.liveTickMs);
   void tick();
 }
 
@@ -171,7 +176,7 @@ async function answerAgentReview(a: ChainAgent, snap: Snapshot) {
   } else if (specHash(spec) !== a.spec_hash) {
     verdict = { approved: false, checks: [{ name: "Matches its fingerprint", passed: false }], summary: "The instructions shared don't match the agent's on-chain fingerprint.", receipt: `rules-${crypto.randomBytes(6).toString("hex")}`, by: "rules" };
   } else {
-    verdict = await reviewAgent({ name: a.name, tagline: spec.tagline, spec }, true);
+    verdict = await reviewAgent({ name: a.name, tagline: spec.tagline, spec }, realAi());
   }
   const sent = await call("submit_review", { subject: { Agent: a.id }, verdict: chainVerdict(verdict), proof: proofFor(verdict, snap) }, 60);
   await record("submit_review", `${verdict.approved ? "Approved" : "Turned away"} agent ${a.name}`, sent, { agent: a.id });
@@ -179,7 +184,7 @@ async function answerAgentReview(a: ChainAgent, snap: Snapshot) {
 }
 
 async function answerJobReview(j: ChainJob, snap: Snapshot) {
-  const verdict = await reviewJob({ title: j.title, brief: j.brief, budget: j.budget }, true);
+  const verdict = await reviewJob({ title: j.title, brief: j.brief, budget: j.budget }, realAi());
   const sent = await call("submit_review", { subject: { Job: j.id }, verdict: chainVerdict(verdict), proof: proofFor(verdict, snap) }, 60);
   await record("submit_review", `${verdict.approved ? "Approved" : "Turned down"} job #${j.id}`, sent, { job: j.id });
   await changeLive((s) => {
@@ -195,6 +200,7 @@ export function withSpec(a: ChainAgent, spec: LiveSpec | undefined): Agent | nul
   if (!spec) return null;
   return {
     ...(a as unknown as Agent),
+    review: a.review ? { ...a.review, by: aiLabel(), verified: a.review.verified_signer ? { signer: a.review.verified_signer, kind: "provider_tee" } : null } : null,
     tagline: spec.tagline,
     skill: spec.skill,
     hue: spec.hue,
@@ -253,7 +259,7 @@ async function doWork(j: ChainJob, snap: Snapshot) {
     let step: Partial<WorkStep>;
     try {
       const tools = await gatherTools(j, agent, previous);
-      const t = await think(j, agent, previous, tools, feedback, true);
+      const t = await think(j, agent, previous, tools, feedback, realAi());
       const sent = await call("charge_fuel", { job_id: j.id, agent_id: agent.id, amount: t.cost.toString(), receipt: t.receipt.slice(0, 128) }, 30);
       await record("charge_fuel", `${agent.name} paid ${fmtNear(t.cost)} NEAR for AI on job #${j.id}`, sent, { job: j.id, agent: agent.id });
       step = { text: t.text, tools: t.tools, tokens: t.tokens, cost: sent.ok ? t.cost.toString() : "0", receipt: t.receipt, verified: t.verified };
@@ -280,7 +286,7 @@ async function doWork(j: ChainJob, snap: Snapshot) {
 async function checkWork(j: ChainJob, snap: Snapshot) {
   const ex = jobExtra(live(), j.id);
   if (ex.attempts >= 2) return; // second miss already: the poster decides
-  const verdict = await reviewDelivery(j, ex.result ?? "", true);
+  const verdict = await reviewDelivery(j, ex.result ?? "", realAi());
   const sent = await call("check_delivery", { job_id: j.id, verdict: chainVerdict(verdict), proof: proofFor(verdict, snap) }, 60);
   await record("check_delivery", verdict.approved ? `Work on job #${j.id} passed` : `Work on job #${j.id} sent back`, sent, { job: j.id });
   await changeLive((s) => {

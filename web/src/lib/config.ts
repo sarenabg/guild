@@ -34,9 +34,13 @@ export const config = {
   /** "mainnet" for the real thing, "testnet" to rehearse with free NEAR. */
   network: (process.env.NEAR_NETWORK === "testnet" ? "testnet" : "mainnet") as "mainnet" | "testnet",
   /** The deployed Guild contract. Empty = no live version. */
-  liveContract: process.env.GUILD_CONTRACT?.trim() || "",
+  liveContract: process.env.GUILD_CONTRACT?.trim() || (process.env.GUILD_LIVE_MOCK === "1" ? "guild.mock" : ""),
+  /** Practice chain: the Live version runs against an in-memory copy of the contract (tests, local try-outs). */
+  liveMock: process.env.GUILD_LIVE_MOCK === "1",
+  /** How often the live runner looks at the contract. */
+  liveTickMs: Number(process.env.GUILD_LIVE_TICK_MS || "4000"),
   /** The runner/reviewer account and its function-call key (only allowed to call the Guild contract). */
-  operatorId: process.env.GUILD_OPERATOR_ID?.trim() || "",
+  operatorId: process.env.GUILD_OPERATOR_ID?.trim() || (process.env.GUILD_LIVE_MOCK === "1" ? "runner.mock" : ""),
   operatorKey: process.env.GUILD_OPERATOR_KEY?.trim() || readKeyFile(process.env.GUILD_OPERATOR_KEY_FILE),
   nearRpc:
     process.env.NEAR_RPC?.trim() ||
@@ -53,6 +57,7 @@ export const liveOn = () => config.liveContract.length > 0;
 /** Why the live runner can't run yet, or null when it can. */
 export function liveProblem(): string | null {
   if (!config.liveContract) return "No contract set (GUILD_CONTRACT).";
+  if (config.liveMock) return null;
   if (!config.operatorId || !config.operatorKey) return "No runner account set (GUILD_OPERATOR_ID / GUILD_OPERATOR_KEY).";
   if (!config.nearAiKey) return "No NEAR AI key set (NEARAI_API_KEY).";
   return null;
