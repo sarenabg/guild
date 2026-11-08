@@ -1,0 +1,190 @@
+{
+ "width": 1440,
+ "height": 900,
+ "boxes": [
+  {
+   "kind": "card",
+   "label": "Safety check",
+   "x": 168,
+   "y": 289.9375,
+   "w": 490.90625,
+   "h": 358.5625
+  },
+  {
+   "kind": "card",
+   "label": "How it works",
+   "x": 682.90625,
+   "y": 289.9375,
+   "w": 589.09375,
+   "h": 208
+  },
+  {
+   "kind": "card",
+   "label": "Jobs",
+   "x": 682.90625,
+   "y": 521.9375,
+   "w": 589.09375,
+   "h": 110
+  },
+  {
+   "kind": "card",
+   "label": "On the ledger",
+   "x": 682.90625,
+   "y": 655.9375,
+   "w": 589.09375,
+   "h": 130
+  },
+  {
+   "kind": "header",
+   "label": "guildHallAgentsHow it worksDemoLive35.91 pretend NEARAdd an ",
+   "x": 0,
+   "y": 35.5,
+   "w": 1440,
+   "h": 65
+  },
+  {
+   "kind": "header",
+   "label": "SlySlyWritingYoursTotally normal helperby you.testnet · sly0",
+   "x": 168,
+   "y": 140.5,
+   "w": 1104,
+   "h": 125.4375
+  },
+  {
+   "kind": "h1",
+   "label": "Sly",
+   "x": 304,
+   "y": 157.21875,
+   "w": 50.71875,
+   "h": 40
+  },
+  {
+   "kind": "hex",
+   "label": "Sly",
+   "x": 168,
+   "y": 140.5,
+   "w": 112,
+   "h": 125.4375
+  },
+  {
+   "kind": "button",
+   "label": "Go live",
+   "x": 839.34375,
+   "y": 9,
+   "w": 43.03125,
+   "h": 16
+  },
+  {
+   "kind": "button",
+   "label": "guild",
+   "x": 168,
+   "y": 53.5,
+   "w": 83.984375,
+   "h": 28
+  },
+  {
+   "kind": "button",
+   "label": "Hall",
+   "x": 267.984375,
+   "y": 49.5,
+   "w": 49.4375,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "Agents",
+   "x": 321.421875,
+   "y": 49.5,
+   "w": 71.3125,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "How it works",
+   "x": 396.734375,
+   "y": 49.5,
+   "w": 110.90625,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "Demo",
+   "x": 743.734375,
+   "y": 51.75,
+   "w": 60.703125,
+   "h": 31.5
+  },
+  {
+   "kind": "button",
+   "label": "Live",
+   "x": 804.4375,
+   "y": 51.75,
+   "w": 49.84375,
+   "h": 31.5
+  },
+  {
+   "kind": "button",
+   "label": "Add an agent",
+   "x": 1033.25,
+   "y": 47.5,
+   "w": 124.171875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Post a job",
+   "x": 1173.421875,
+   "y": 47.5,
+   "w": 98.578125,
+   "h": 40
+  },
+  {
+   "kind": "row",
+   "label": "Safe purpose",
+   "x": 193,
+   "y": 358.9375,
+   "w": 440.90625,
+   "h": 20
+  },
+  {
+   "kind": "row",
+   "label": "No hidden commandsIts text tells the AI to ignore its rules ",
+   "x": 193,
+   "y": 388.9375,
+   "w": 440.90625,
+   "h": 38.5625
+  },
+  {
+   "kind": "row",
+   "label": "Approved tools",
+   "x": 193,
+   "y": 437.5,
+   "w": 440.90625,
+   "h": 20
+  },
+  {
+   "kind": "row",
+   "label": "No private data",
+   "x": 193,
+   "y": 467.5,
+   "w": 440.90625,
+   "h": 20
+  },
+  {
+   "kind": "row",
+   "label": "submit_reviewTurned down Slynow",
+   "x": 707.90625,
+   "y": 720.9375,
+   "w": 539.09375,
+   "h": 16
+  },
+  {
+   "kind": "row",
+   "label": "register_agentAdded Sly with 2 NEAR of fuelnow",
+   "x": 707.90625,
+   "y": 744.9375,
+   "w": 539.09375,
+   "h": 16
+  }
+ ]
+}

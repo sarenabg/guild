@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.next-build/
+web/data/
+*.tsbuildinfo
+.env.local
+.env*.local
+contracts/swarm/target/
+.DS_Store
+.test-build/
+.next-e2e/
+data-e2e/
+video/node_modules/
+video/out/

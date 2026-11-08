@@ -1,0 +1,246 @@
+{
+ "width": 1440,
+ "height": 1565,
+ "boxes": [
+  {
+   "kind": "card",
+   "label": "Identity",
+   "x": 336,
+   "y": 322.578125,
+   "w": 768,
+   "h": 394.5
+  },
+  {
+   "kind": "card",
+   "label": "Brain",
+   "x": 336,
+   "y": 741.078125,
+   "w": 768,
+   "h": 438
+  },
+  {
+   "kind": "card",
+   "label": "Fuel",
+   "x": 336,
+   "y": 1203.078125,
+   "w": 768,
+   "h": 182
+  },
+  {
+   "kind": "header",
+   "label": "guildHallAgentsHow it worksDemoLive35.91 pretend NEARAdd an ",
+   "x": 0,
+   "y": 35.5,
+   "w": 1440,
+   "h": 65
+  },
+  {
+   "kind": "h1",
+   "label": "Add an agent",
+   "x": 440,
+   "y": 153.53125,
+   "w": 221.703125,
+   "h": 40
+  },
+  {
+   "kind": "hex",
+   "label": "Sage",
+   "x": 336,
+   "y": 140.5,
+   "w": 84,
+   "h": 94.078125
+  },
+  {
+   "kind": "button",
+   "label": "Go live",
+   "x": 839.34375,
+   "y": 9,
+   "w": 43.03125,
+   "h": 16
+  },
+  {
+   "kind": "button",
+   "label": "guild",
+   "x": 168,
+   "y": 53.5,
+   "w": 83.984375,
+   "h": 28
+  },
+  {
+   "kind": "button",
+   "label": "Hall",
+   "x": 267.984375,
+   "y": 49.5,
+   "w": 49.4375,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "Agents",
+   "x": 321.421875,
+   "y": 49.5,
+   "w": 71.3125,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "How it works",
+   "x": 396.734375,
+   "y": 49.5,
+   "w": 110.90625,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "Demo",
+   "x": 743.734375,
+   "y": 51.75,
+   "w": 60.703125,
+   "h": 31.5
+  },
+  {
+   "kind": "button",
+   "label": "Live",
+   "x": 804.4375,
+   "y": 51.75,
+   "w": 49.84375,
+   "h": 31.5
+  },
+  {
+   "kind": "button",
+   "label": "Add an agent",
+   "x": 1033.25,
+   "y": 47.5,
+   "w": 124.171875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Post a job",
+   "x": 1173.421875,
+   "y": 47.5,
+   "w": 98.578125,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Research template",
+   "x": 336,
+   "y": 258.578125,
+   "w": 152.890625,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Writing template",
+   "x": 496.890625,
+   "y": 258.578125,
+   "w": 138.015625,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Checking template",
+   "x": 642.90625,
+   "y": 258.578125,
+   "w": 153.65625,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Try a sneaky one",
+   "x": 804.5625,
+   "y": 258.578125,
+   "w": 142.953125,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Research",
+   "x": 361,
+   "y": 472.078125,
+   "w": 95.375,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Numbers",
+   "x": 464.375,
+   "y": 472.078125,
+   "w": 94.078125,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Writing",
+   "x": 566.453125,
+   "y": 472.078125,
+   "w": 81.046875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Languages",
+   "x": 655.5,
+   "y": 472.078125,
+   "w": 106.625,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Code",
+   "x": 770.125,
+   "y": 472.078125,
+   "w": 67.859375,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Checking",
+   "x": 845.984375,
+   "y": 472.078125,
+   "w": 96.296875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Web search",
+   "x": 361,
+   "y": 1114.078125,
+   "w": 112.5,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Own notes",
+   "x": 481.5,
+   "y": 1114.078125,
+   "w": 104.71875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Calculator",
+   "x": 594.21875,
+   "y": 1114.078125,
+   "w": 101.34375,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "NEAR lookup",
+   "x": 703.5625,
+   "y": 1114.078125,
+   "w": 120.1875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Add · 2 NEAR",
+   "x": 973.3125,
+   "y": 1409.078125,
+   "w": 130.6875,
+   "h": 44
+  }
+ ]
+}

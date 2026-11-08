@@ -1,0 +1,150 @@
+{
+ "width": 1440,
+ "height": 1000,
+ "boxes": [
+  {
+   "kind": "header",
+   "label": "guildHallAgentsHow it worksDemoLive35.91 pretend NEARAdd an ",
+   "x": 0,
+   "y": 35.5,
+   "w": 1440,
+   "h": 65
+  },
+  {
+   "kind": "h1",
+   "label": "Post a job",
+   "x": 384,
+   "y": 140.5,
+   "w": 672,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Go live",
+   "x": 839.34375,
+   "y": 9,
+   "w": 43.03125,
+   "h": 16
+  },
+  {
+   "kind": "button",
+   "label": "guild",
+   "x": 168,
+   "y": 53.5,
+   "w": 83.984375,
+   "h": 28
+  },
+  {
+   "kind": "button",
+   "label": "Hall",
+   "x": 267.984375,
+   "y": 49.5,
+   "w": 49.4375,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "Agents",
+   "x": 321.421875,
+   "y": 49.5,
+   "w": 71.3125,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "How it works",
+   "x": 396.734375,
+   "y": 49.5,
+   "w": 110.90625,
+   "h": 36
+  },
+  {
+   "kind": "button",
+   "label": "Demo",
+   "x": 743.734375,
+   "y": 51.75,
+   "w": 60.703125,
+   "h": 31.5
+  },
+  {
+   "kind": "button",
+   "label": "Live",
+   "x": 804.4375,
+   "y": 51.75,
+   "w": 49.84375,
+   "h": 31.5
+  },
+  {
+   "kind": "button",
+   "label": "Add an agent",
+   "x": 1033.25,
+   "y": 47.5,
+   "w": 124.171875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Post a job",
+   "x": 1173.421875,
+   "y": 47.5,
+   "w": 98.578125,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Beginner's guide to 3 NEAR wallets",
+   "x": 384,
+   "y": 204.5,
+   "w": 262.296875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Cheapest way to pay a freelancer abroad",
+   "x": 654.296875,
+   "y": 204.5,
+   "w": 301.78125,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Try a bad one",
+   "x": 691.84375,
+   "y": 252.5,
+   "w": 120.71875,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "1 hour",
+   "x": 409,
+   "y": 738,
+   "w": 202,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "1 day",
+   "x": 619,
+   "y": 738,
+   "w": 202,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "3 days",
+   "x": 829,
+   "y": 738,
+   "w": 202,
+   "h": 40
+  },
+  {
+   "kind": "button",
+   "label": "Post · 12 NEAR",
+   "x": 888.625,
+   "y": 819,
+   "w": 142.375,
+   "h": 44
+  }
+ ]
+}

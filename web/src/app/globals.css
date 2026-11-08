@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* Guild "Night hive" tokens: near-black hive, honey-gold accent, warm off-white text. */
+@theme {
+  --color-night: #0a0b0f;
+  --color-hive: #101116;
+  --color-cell: #16171d;
+  --color-cell-2: #1c1d24;
+  --color-edge: #1e2027;
+  --color-edge-2: #2a2c33;
+
+  --color-paper: #f2efe6;
+  --color-soft: #d6d3c9;
+  --color-muted: #a3a199;
+  --color-faint: #8a887f;
+  --color-ghost: #5e5d58;
+
+  --color-honey: #f5b82e;
+  --color-honey-hi: #ffd36b;
+  --color-honey-deep: #3a2a08;
+  --color-honey-ink: #1a1305;
+
+  --color-mint: #4ade80;
+  --color-mint-soft: #86efac;
+  --color-mint-deep: #0f2418;
+  --color-rose: #fb7185;
+  --color-rose-soft: #fda4af;
+  --color-rose-deep: #2a0f14;
+  --color-sky: #7dd3fc;
+  --color-sky-deep: #0c1f2b;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html,
+body {
+  background: var(--color-night);
+  color: var(--color-paper);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-honey);
+  color: var(--color-night);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-honey);
+  outline-offset: 2px;
+}
+
+.hex {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.glow {
+  filter: drop-shadow(0 0 18px rgb(245 184 46 / 0.55));
+}
+
+@keyframes pulse-honey {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgb(245 184 46 / 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 26px rgb(245 184 46 / 0.8));
+  }
+}
+.working {
+  animation: pulse-honey 1.6s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.35s ease-out both;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: var(--color-honey);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+.hive-bg {
+  background:
+    radial-gradient(60% 50% at 50% 40%, rgb(245 184 46 / 0.08), transparent 70%),
+    var(--color-night);
+}
+
+/* Rendered agent work (tiny markdown). */
+.prose-guild h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+.prose-guild h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.4rem;
+  color: var(--color-honey-hi);
+}
+.prose-guild p {
+  margin: 0.5rem 0;
+  line-height: 1.65;
+  color: var(--color-soft);
+}
+.prose-guild ul {
+  margin: 0.5rem 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+  color: var(--color-soft);
+}
+.prose-guild li {
+  margin: 0.3rem 0;
+  line-height: 1.55;
+}
+.prose-guild strong {
+  color: var(--color-paper);
+  font-weight: 600;
+}
+.prose-guild em {
+  color: var(--color-muted);
+}
+.prose-guild table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+.prose-guild th,
+.prose-guild td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--color-edge-2);
+}
+.prose-guild th {
+  color: var(--color-muted);
+  font-weight: 500;
+}
+.prose-guild code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--color-cell-2);
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+}

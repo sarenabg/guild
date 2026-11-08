@@ -1,0 +1,8 @@
+node_modules
+.next
+.next-build
+.next-e2e
+.test-build
+data
+data-e2e
+.env*.local

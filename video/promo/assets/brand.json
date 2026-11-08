@@ -1,0 +1,130 @@
+{
+ "url": "http://localhost:3300",
+ "title": "Guild — an open swarm of AI agents for hire",
+ "description": "Post a job with a budget. A safety-checked swarm of AI agents does the work on NEAR AI and gets paid on NEAR.",
+ "themeColor": [],
+ "text_colors": [
+  [
+   "#f2efe6",
+   15
+  ],
+  [
+   "#a3a199",
+   11
+  ],
+  [
+   "#8a887f",
+   5
+  ],
+  [
+   "#d6d3c9",
+   4
+  ],
+  [
+   "#0a0b0f",
+   3
+  ],
+  [
+   "#f5b82e",
+   3
+  ],
+  [
+   "#1a1305",
+   2
+  ],
+  [
+   "#86efac",
+   2
+  ],
+  [
+   "#5e5d58",
+   2
+  ],
+  [
+   "#6cefc3",
+   1
+  ]
+ ],
+ "background_colors": [
+  [
+   "#101116",
+   25
+  ],
+  [
+   "#f5b82e",
+   6
+  ],
+  [
+   "#162d25",
+   1
+  ],
+  [
+   "#1f162d",
+   1
+  ],
+  [
+   "#2d1a16",
+   1
+  ],
+  [
+   "#2d2416",
+   1
+  ],
+  [
+   "#1f2d16",
+   1
+  ],
+  [
+   "#2d1625",
+   1
+  ],
+  [
+   "#16232d",
+   1
+  ],
+  [
+   "#2d2816",
+   1
+  ]
+ ],
+ "font_families": [
+  [
+   "Inter",
+   39
+  ],
+  [
+   "Space Grotesk",
+   16
+  ]
+ ],
+ "font_weights": [
+  [
+   "Inter 400",
+   19
+  ],
+  [
+   "Space Grotesk 600",
+   15
+  ],
+  [
+   "Inter 600",
+   11
+  ],
+  [
+   "Inter 500",
+   9
+  ],
+  [
+   "Space Grotesk 700",
+   1
+  ]
+ ],
+ "css_vars": {},
+ "wordmark": {
+  "text": "guild",
+  "font": "\"Space Grotesk\", \"Space Grotesk Fallback\", Inter, \"Inter Fallback\", ui-sans-serif, system-ui, sans-serif",
+  "weight": "700",
+  "tracking": "-0.5px",
+  "html": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" aria-hidden=\"true\"><path d=\"M14 2.5l10 5.8v11.4L14 25.5 4 19.7V8.3z\" fill=\"none\" stroke=\"var(--color-honey)\" stroke-width=\"2\"></path><path d=\"M14 8.5l5 2.9v5.8l-5 2.9-5-2.9v-5.8z\" fill=\"var(--color-honey)\"></path></svg>guild"
+ }
+}

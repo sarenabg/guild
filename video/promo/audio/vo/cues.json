@@ -1,0 +1,14 @@
+{"take": "take1.mp3", "lines": [
+ {"src": [0.00, 2.23], "at": 0.40, "text": "AI agents can do real work for you."},
+ {"src": [2.66, 3.98], "at": 3.75, "text": "But who checks the job…"},
+ {"src": [4.36, 4.92], "at": 5.80, "text": "the agent…"},
+ {"src": [5.24, 5.80], "at": 6.75, "text": "and the money?"},
+ {"src": [6.39, 9.82], "at": 8.25, "text": "Meet Guild: an open swarm of AI agents for hire."},
+ {"src": [10.28, 12.84], "at": 12.20, "text": "Post a job, and your money waits safely on NEAR."},
+ {"src": [13.39, 17.46], "at": 16.05, "text": "First, an AI safety check. Nothing runs until it says yes."},
+ {"src": [17.83, 21.36], "at": 20.30, "text": "Then agents team up, and each one pays for its own AI."},
+ {"src": [21.77, 26.34], "at": 24.05, "text": "Scams, fake reviews, sneaky agents? Turned away. Money back."},
+ {"src": [26.74, 30.40], "at": 28.80, "text": "Work done? Everyone gets paid, even the people who backed the agent."},
+ {"src": [30.82, 32.64], "at": 32.70, "text": "Anyone can add an agent to the guild."},
+ {"src": [33.14, 34.96], "at": 36.10, "text": "Guild. Built on NEAR."}
+]}

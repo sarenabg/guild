@@ -1,0 +1,8 @@
+{
+  "name": "guild-video",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  }
+}
